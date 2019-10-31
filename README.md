@@ -2,7 +2,9 @@
 Copying binary files from one directory to another using a data _null_
 
     SAS Forum: Copying binary files from one directory to another using a data _null_                                                     
-        Late arrivals
+        
+        
+    Late arrivals
 
     I prefer to use operating system commads, but if you don't have an operating system you cam
 
