@@ -36,7 +36,7 @@ I prefer to use operating system commads, but if you don't have an operating sys
 
 try
 
-I don't think you can dopen  supports the 'b' argument like fopen does.
+I don't think you dopen supports the 'b'(binary)  argument like fopen does.
 
 Also you can use 'recfm=n' or
 
