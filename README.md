@@ -2,7 +2,65 @@
 Copying binary files from one directory to another using a data _null_
 
     SAS Forum: Copying binary files from one directory to another using a data _null_                                                     
-                                                                                                                                          
+        Late arrivals
+
+    I prefer to use operating system commads, but if you don't have an operating system you cam
+
+    try
+
+    I don't think you can dopen  supports the 'b' argument like fopen does.
+
+    Also you can use 'recfm=n' or
+
+
+    github
+    https://tinyurl.com/y6qjceow
+    https://github.com/rogerjdeangelis/utl-copying-binary-files-from-one-directory-to-another-using-a-data-_null_
+
+    SAS Forum
+    https://tinyurl.com/yyekhuxj
+    https://communities.sas.com/t5/SAS-Programming/Move-multiple-files-in-SAS/m-p/593272
+
+    Unix cp
+    or
+    windows
+    robocopy
+    xcopy
+
+    github
+    https://tinyurl.com/y4u776gf
+    https://documentation.sas.com/?docsetId=lefunctionsref&docsetTarget=n10dz22b5ixohin1vwzilweetek0.htm&docsetVersion=9.4&locale=en
+
+    Example 2: Copying a Binary File
+    This example copies a binary file from one directory to another. Setting the
+    MSGLEVEL= system option to I causes informational messages from FCOPY to be written to the log.
+       /* Set MSGLEVEL to I to write messages from FCOPY to the log. */
+    options msglevel=i;
+
+    filename src 'raises.xlsx' recfm=n;
+    filename dest 'raises-2012.xlsx' recfm=n;
+
+       /* Create an example file to copy. */
+    data _null_;
+       file src;
+       do i=1, 2105, 300312, 400501;
+         put i:words256.;
+       end;
+    run;
+
+    data _null_;
+       length msg $ 384;
+       rc=fcopy('src', 'dest');
+       if rc=0 then
+          put 'Copied SRC to DEST.';
+       else do;
+          msg=sysmsg();
+          put rc= msg=;
+       end;
+    run;
+
+
+                                                                                                                                      
     Problem;                                                                                                                              
                                                                                                                                           
         Copy                                                                                                                              
